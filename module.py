@@ -57,7 +57,7 @@ class Mod:
                 return 1
             # os.getcwd()
             # os.mkdir(os.path.join(".", f"{title}"))
-            with open(f"./src/gravure/{title}-{count:03}.jpg", "wb") as fout:
+            with open(f"./src/xblog/{title}-{count:03}.jpg", "wb") as fout:
                 fout.write(response.content)
             print(title, count)
 
@@ -73,7 +73,7 @@ if __name__ == "__main__":
 
     a = Mod()
     print(a.urls)
-    gravure = a.urls[0]
-    print(a.page_count(gravure))
-    t, u = a.image_pair_values("https://gravureblog.tv/rei-kuromiya-set-536/")
+    # gravure = a.urls[0]
+    # print(a.page_count(gravure))
+    t, u = a.image_pair_values("https://xblog.tv/masha-juventa-club-red-2/")
     a.scrap_and_save(t, u)
