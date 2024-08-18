@@ -1,3 +1,13 @@
-from src.file_struct.check import Check
+from sys import argv
+from src.config.config import Config
 
-Check()
+# handle argv
+name, *values = argv
+
+
+def init(val):
+    conf = Config(val)
+
+
+if __name__ == "__main__":
+    pass
