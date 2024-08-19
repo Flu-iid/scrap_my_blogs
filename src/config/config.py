@@ -11,6 +11,11 @@ class Config:
         self.config_path_exist = self.check_file_existance()
         self.config_name = self.read() if self.config_path_exist else None
         self.map_values_status = self.map_values() if self.config_name else None
+        self.parser = None
+        self.method = None
+        self.page_count = None
+        self.url_path = None
+        self.save_path = None
         if verbose:
             self.show()
 
@@ -73,4 +78,3 @@ ________save path: {self.save_path}\n\
 
 if __name__ == "__main__":
     conf = Config("config.ini", verbose=True)
-    print()
