@@ -5,10 +5,10 @@ import os
 
 def pathError(fn: Callable):
     def wrapper():
-        try:
-            fn()
-        except os.error:
-            print("Error: Config file missing")
+        result = fn()
+        if not result:
+            print("Error: Path Error.config file missing")
+        return result
 
     return wrapper
 
@@ -16,8 +16,20 @@ def pathError(fn: Callable):
 def parsingError(fn: Callable):
     def wrapper():
         try:
-            fn()
+            return fn()
         except configparser.Error:
-            print("Error: Config Integrity. check config.ini")
+            print("Error: Parsing Error. check config rules")
+
+    return wrapper
+
+
+def configValueError(fn: Callable):
+    def wrapper():
+        try:
+            fn()
+            return True
+        except configparser.Error:
+            print("Error: Config Value Error. check config name and values")
+            return False
 
     return wrapper
