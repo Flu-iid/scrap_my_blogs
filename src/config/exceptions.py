@@ -1,6 +1,5 @@
 from typing import Callable
 import configparser
-import os
 
 
 def pathError(fn: Callable):
