@@ -4,6 +4,8 @@ from src.config.config import Config
 # handle argv
 name, *values = argv
 
+config_path: str = ""
+
 
 def init(val):
     conf = Config(val)
